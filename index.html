@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Invitación Almendra</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      height: 100%;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      background-image: url('background_coral22222.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      overflow-x: hidden;
+    }
+
+    /* Sección del video */
+    .video-section {
+      width: 100%;
+      height: auto;
+    }
+
+    .video-section video {
+      width: 100%;
+      height: auto;
+    }
+
+    /* Imágenes responsivas */
+    .image-section {
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    .image-section img {
+      height: auto;
+    }
+
+    .img-75 { width: 75%; }
+    .img-85 { width: 85%; }
+    .img-25 { width: 25%; }
+    .img-45 { width: 45%; }
+    .img-100 { width: 100%; }
+
+    /* Reproducir y pausar música al hacer clic */
+    .image-section-audio {
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    .image-section-audio img {
+      width: 75%;
+      height: auto;
+      cursor: pointer;
+    }
+
+    /* Sección del temporizador */
+    .timer-section {
+      background-image: url('backhour.jpg');
+      background-size: cover;
+      background-position: center;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      color: white;
+      text-align: center;
+      font-family: Arial, sans-serif;
+      padding: 20px 0;
+    }
+
+    .timer-heading {
+      color: red; /* Color rojo para la palabra "Faltan" */
+      font-size: 2em;
+      margin-bottom: 20px;
+    }
+
+    .timer-container {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .time-block {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .timer {
+      font-size: 3em;
+      color: black; /* Color negro para los números */
+    }
+
+    .seconds {
+      color: purple; /* Color morado para los segundos */
+    }
+
+    .timer-label {
+      font-size: 1em;
+    }
+
+    /* GIF responsive */
+    .gif-section {
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    .gif-section img {
+      width: 100%;
+      height: auto;
+    }
+
+  </style>
+</head>
+<body>
+
+
+
+  <!-- Sección con video responsivo -->
+  <div class="video-section">
+    <video autoplay muted loop>
+      <source src="intro.mp4" type="video/mp4">
+      Tu navegador no soporta el formato de video.
+    </video>
+  </div>
+
+  <!-- Segunda sección con una imagen responsiva -->
+  <div class="image-section">
+    <img src="lazo.png" alt="Imagen Responsiva" class="img-100">
+  </div>
+
+  <!-- Imagen que al dar click reproduce o pausa una canción -->
+  <div class="image-section-audio">
+    <img src="start.png" alt="Imagen con audio" onclick="toggleAudio()">
+    <audio id="audio">
+      <source src="Lana Del Rey - Young and Beautiful.MP3" type="audio/mp4">
+      Tu navegador no soporta el formato de audio.
+    </audio>
+  </div>
+
+  <!-- Más imágenes responsivas -->
+  <div class="image-section">
+    <img src="darclick.png" alt="Imagen 75%" class="img-75">
+  </div>
+
+  <div class="image-section">
+    <img src="padres.png" alt="Imagen 85%" class="img-85">
+  </div>
+
+  <div class="image-section">
+    <img src="flor_blanca.png" alt="Imagen 25%" class="img-25">
+  </div>
+
+  <div class="image-section">
+    <img src="padrinos.png" alt="Imagen 85%" class="img-85">
+  </div>
+
+  <div class="image-section">
+    <img src="viernes.png" alt="Imagen 85%" class="img-85">
+  </div>
+
+  <!-- Temporizador con imagen de fondo -->
+  <div class="timer-section">
+    <h2 class="timer-heading">Faltan</h2>
+    <div class="timer-container">
+      <div class="time-block">
+        <div id="days" class="timer">00</div>
+        <div class="timer-label">Días</div>
+      </div>
+      <div class="time-block">
+        <div id="hours" class="timer">00</div>
+        <div class="timer-label">Horas</div>
+      </div>
+      <div class="time-block">
+        <div id="minutes" class="timer">00</div>
+        <div class="timer-label">Minutos</div>
+      </div>
+      <div class="time-block">
+        <div id="seconds" class="timer seconds">00</div>
+        <div class="timer-label">Segundos</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Más imágenes responsivas con diferentes anchos -->
+  <div class="image-section">
+    <img src="evento.png" alt="Imagen 85%" class="img-85">
+  </div>
+
+  <!-- Imagen con enlace a Google Maps -->
+  <div class="image-section">
+    <a href="https://maps.app.goo.gl/apS7sLFZqxd5SEeF9" target="_blank">
+      <img src="ubicacion.png" alt="Mapa" class="img-45">
+    </a>
+  </div>
+
+  <!-- Imagen de detalles del evento -->
+  <div class="image-section">
+    <img src="detallesevento.png" alt="Detalles del evento" class="img-100">
+  </div>
+
+  <!-- Imagen de sugerencia de regalos -->
+  <div class="image-section">
+    <img src="SUGERENCIAREGALOS.png" alt="Sugerencia de regalos" class="img-100">
+  </div>
+
+  <!-- Imagen de confirmación -->
+  <div class="image-section">
+    <img src="confirmacion.png" alt="Confirmación" class="img-100">
+  </div>
+
+  <!-- Imagen con enlace a WhatsApp -->
+  <div class="image-section">
+    <a href="https://wa.link/78t5q7" target="_blank">
+      <img src="confirmar.png" alt="Confirmar" class="img-45">
+    </a>
+  </div>
+
+ 
+  <!-- Script para el temporizador -->
+  <script>
+    function countdown() {
+      const targetDate = new Date("September 20, 2024 19:00:00").getTime();
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById("days").innerHTML = days < 10 ? "0" + days : days;
+      document.getElementById("hours").innerHTML = hours < 10 ? "0" + hours : hours;
+      document.getElementById("minutes").innerHTML = minutes < 10 ? "0" + minutes : minutes;
+      document.getElementById("seconds").innerHTML = seconds < 10 ? "0" + seconds : seconds;
+
+      if (distance < 0) {
+        clearInterval(countdown);
+        document.getElementById("timer").innerHTML = "EXPIRED";
+      }
+    }
+
+    setInterval(countdown, 1000);
+
+    function toggleAudio() {
+      const audio = document.getElementById('audio');
+      if (audio.paused) {
+        audio.play();
+      } else {
+        audio.pause();
+      }
+    }
+
+
+    window.addEventListener('load', function() {
+    const audio = document.getElementById('background-music');
+    audio.muted = false;  // Si tu navegador permite autoplay sin interacción.
+    audio.play().catch(function(error) {
+      console.log("El navegador bloqueó la reproducción automática.");
+    });
+  });
+  </script>
+
+</body>
+</html>
